@@ -9,11 +9,11 @@ describe Spitter do
       @spitter = Class.new(Spitter){ parameter :code }.new(@params)
     end
 
-    it "should create the rules" do
+    it "creates the rules" do
       @spitter.class.rules.should eq({:code => ['code',nil]})
     end
 
-    it "should transform the params" do
+    it "transforms the params" do
       new_params = @spitter.parse
       new_params.should eq({'code' => '1234'})
     end
@@ -25,11 +25,11 @@ describe Spitter do
       @spitter = Class.new(Spitter){ parameter :item_id => 'itemId' }.new(@params)
     end
 
-    it "should create the rules" do
+    it "creates the rules" do
       @spitter.class.rules.should eq({:item_id => ['itemId',nil]})
     end
 
-    it "should transform the params" do
+    it "transforms the params" do
       new_params = @spitter.parse
       new_params.should eq({'itemId' => 1})
     end
@@ -41,11 +41,11 @@ describe Spitter do
       @spitter = Class.new(Spitter){ parameter :item_id => lambda {|i| i.to_s.upcase }}.new(@params)
     end
 
-    it "should create the rules" do
+    it "creates the rules" do
       @spitter.class.rules.should eq({:item_id => ['ITEM_ID',nil]})
     end
 
-    it "should transform the params" do
+    it "transforms the params" do
       new_params = @spitter.parse
       new_params.should eq({'ITEM_ID' => 1})
     end
@@ -62,11 +62,11 @@ describe Spitter do
       @spitter = Class.new(Spitter){ parameter :item_id => klass }.new(@params)
     end
 
-    it "should create the rules" do
+    it "creates the rules" do
       @spitter.class.rules.should eq({:item_id => ['ITEM_ID',nil]})
     end
 
-    it "should transform the params" do
+    it "transforms the params" do
       new_params = @spitter.parse
       new_params.should eq({'ITEM_ID' => 1})
     end
@@ -78,7 +78,7 @@ describe Spitter do
       @spitter = Class.new(Spitter){ parameter :is_cool => 'isCool', :with => lambda { |a| a ? "1" : "0" } }.new(@params)
     end
 
-    it "should transform the params" do
+    it "transforms the params" do
       new_params = @spitter.parse
       new_params.should eq({'isCool' => '1'})
     end
@@ -95,7 +95,7 @@ describe Spitter do
       @spitter = Class.new(Spitter){ parameter :is_cool => 'isCool', :with => klass }.new(@params)
     end
 
-    it "should transform the params" do
+    it "transforms the params" do
       new_params = @spitter.parse
       new_params.should eq({'isCool' => '1'})
     end
@@ -112,7 +112,7 @@ describe Spitter do
       end.new(@params)
     end
 
-    it "should transform the params" do
+    it "transforms the params" do
       new_params = @spitter.parse
       new_params.should eq({'shopName' => 'roomba', 'shopCode' => '123'})
     end
