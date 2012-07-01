@@ -10,6 +10,7 @@ Takes nice Ruby parameter hashes and spits out whatever crap you need it to. A s
 
 == Example Usage
 
+
 === Transform Key
 
   class ApiClient < Spitter
