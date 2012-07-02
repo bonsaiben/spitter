@@ -17,7 +17,7 @@ Takes nice Ruby parameter hashes and spits out whatever crap you need it to. A s
     parameter :ruby_param => 'apiCamelCaseDataFlag'
   end
 
-  $ ApiClient.parse(:purchasable => '1')
+  $ ApiClient.parse(:ruby_param => '1')
   => {'apiCamelCaseDataFlag' => '1'}
 
 === Transform Value with Lambda
@@ -26,7 +26,7 @@ Takes nice Ruby parameter hashes and spits out whatever crap you need it to. A s
     parameter :ruby_param => 'apiCamelCaseDataFlag', :with => lambda {|v| v ? '1' : '0'}
   end
 
-  $ ApiClient.parse(:purchasable => true)
+  $ ApiClient.parse(:ruby_param => true)
   => {'apiCamelCaseDataFlag' => '1'}
 
 === Transform Value with Class
@@ -41,7 +41,7 @@ Takes nice Ruby parameter hashes and spits out whatever crap you need it to. A s
     parameter :ruby_param => 'apiCamelCaseDataFlag', :with => TrueOrFalse
   end
 
-  $ ApiClient.parse(:purchasable => true)
+  $ ApiClient.parse(:ruby_param => true)
   => {'apiCamelCaseDataFlag' => '1'}
 
 === Transform Value Only
